@@ -10,6 +10,7 @@ from .issequence_containinginanyorder import contains_inanyorder
 from .issequence_containinginorder import contains
 from .issequence_onlycontaining import only_contains
 from .is_empty import empty
+from .full_object_matcher import is_the_same_object
 
 __author__ = "Chris Rose"
 __copyright__ = "Copyright 2013 hamcrest.org"

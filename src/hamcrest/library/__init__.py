@@ -41,4 +41,5 @@ __all__ = [
     'ends_with',
     'starts_with',
     'string_contains_in_order',
+    'is_the_same_object',
 ]
