@@ -33,7 +33,8 @@ class ObjectsMatch(BaseMatcher):
             description.append_text(keys)
         elif self.difference:
             description.append_text("The object to have all the following field(s):\n")
-            description.append_text(self.difference)
+            keys = [key for key in self.difference]
+            description.append_text(keys)
         elif self.incorrect_fields:
             description.append_text("The following key:value pairs\n")
             required_tabular_format = {key: [self.object[key]] for key in self.incorrect_fields }
@@ -43,12 +44,12 @@ class ObjectsMatch(BaseMatcher):
     def describe_mismatch(self, item, mismatch_description):
         if self.extra_fields:
             mismatch_description.append_text("The following field(s) were also on the object:\n")
-            mismatch_description.append_text(self.extra_fields)
+            keys = [key for key in self.extra_fields]
+            mismatch_description.append_text(keys)
         elif self.difference:
             mismatch_description.append_text("The object only has the following fields(s):\n")
             keys = [key for key in item]
             mismatch_description.append_text(keys)
-
         elif self.incorrect_fields:
             mismatch_description.append_text("\n")
             mismatch_description.append_text(tabulate(self.incorrect_fields, headers='keys', tablefmt='fancy_grid'))

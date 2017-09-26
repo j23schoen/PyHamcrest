@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-from hamcrest.library.collection.full_object_matcher import *
+from hamcrest.library.collection.full_object_matcher import is_the_same_object
 
 from hamcrest_unit_test.matcher_test import MatcherTest
 from hamcrest import assert_that
@@ -35,7 +35,7 @@ class IsTheSameObjectTest(MatcherTest):
             'name': 'Jimmy'
         }
 
-        assert_that(map_1, not is_the_same_object(map_2))
+        assert_that(map_1,  is_the_same_object(map_2))
 
     def test_second_object_has_additional_fields(self):
         map_1 = {
